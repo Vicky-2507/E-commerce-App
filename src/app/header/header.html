@@ -1,0 +1,37 @@
+<nav class="header">
+
+  <a class="logo">
+    MyShop
+  </a>
+
+  <div class="nav-links">
+
+    <a routerLink="/products">
+      Products
+    </a>
+
+    <a routerLink="/cart">
+      Cart
+    </a>
+
+    <!-- Show only when NOT logged in -->
+    <a
+      routerLink="/login"
+      *ngIf="!isLoggedIn()">
+
+      Login
+
+    </a>
+
+  </div>
+
+  <!-- Show only when logged in -->
+  <button
+    *ngIf="isLoggedIn()"
+    (click)="logout()">
+
+    Logout
+
+  </button>
+
+</nav>

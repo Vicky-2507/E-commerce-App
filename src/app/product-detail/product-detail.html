@@ -1,0 +1,95 @@
+<section class="detail-page">
+  <div
+    class="detail-card"
+    *ngIf="product">
+
+    <div class="product-top">
+      <span class="category-chip">{{ product.category }}</span>
+      <span
+        class="featured-chip"
+        *ngIf="product.isFeatured">
+        Featured Pick
+      </span>
+
+      <div class="product-image">
+        <img [src]="product.image" [alt]="product.name">
+      </div>
+
+      <div
+        class="gallery-strip"
+        *ngIf="product.images.length">
+        <img
+          *ngFor="let item of product.images"
+          [src]="item"
+          [alt]="product.name">
+      </div>
+    </div>
+
+    <div class="detail-content">
+      <p class="eyebrow">Premium Product</p>
+
+      <h2>{{ product.name }}</h2>
+
+      <p class="brand">
+        Brand:
+        <span>{{ product.brand }}</span>
+      </p>
+
+      <div class="info-strip">
+        <div class="info-box">
+          <span class="info-label">Category</span>
+          <strong>{{ product.category }}</strong>
+        </div>
+
+        <div class="info-box">
+          <span class="info-label">Price</span>
+          <strong>&#8377; {{ product.price }}</strong>
+        </div>
+
+        <div class="info-box">
+          <span class="info-label">Rating</span>
+          <strong>{{ product.rating }}/5</strong>
+        </div>
+
+        <div class="info-box">
+          <span class="info-label">Stock</span>
+          <strong>{{ product.stock > 0 ? (product.stock + ' Available') : 'Out Of Stock' }}</strong>
+        </div>
+      </div>
+
+      <div class="offer-strip">
+        <span class="offer-badge">{{ product.discount }}% Off</span>
+        <span class="offer-text">Limited-time price on this {{ product.category.toLowerCase() }}</span>
+      </div>
+
+      <p class="detail-copy">{{ product.description }}</p>
+
+      <section class="spec-section" *ngIf="product.specifications.length">
+        <h3>Specifications</h3>
+        <ul class="spec-list">
+          <li *ngFor="let spec of product.specifications">
+            {{ spec }}
+          </li>
+        </ul>
+      </section>
+
+      <h3 class="price">&#8377; {{ product.price }}</h3>
+
+      <div class="actions">
+        <button
+          class="primary-btn"
+          type="button"
+          (click)="addToCart()">
+          Add To Cart
+        </button>
+
+        <button
+          class="secondary-btn"
+          type="button"
+          [routerLink]="['/category', product.category]">
+          Back
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
