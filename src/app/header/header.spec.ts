@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Header } from './header';
+import { testAppProviders } from '../testing/test-providers';
 
 describe('Header', () => {
   let component: Header;
@@ -9,6 +10,7 @@ describe('Header', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Header],
+      providers: testAppProviders(),
     }).compileComponents();
 
     fixture = TestBed.createComponent(Header);
