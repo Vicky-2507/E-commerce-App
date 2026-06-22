@@ -36,6 +36,16 @@ ng build
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
+## Deploying to GitHub Pages
+
+To deploy this Angular app to GitHub Pages, run:
+
+```bash
+npm run deploy
+```
+
+In the repository settings, set **Pages** to publish from the `gh-pages` branch and the `/ (root)` folder.
+
 ## Running unit tests
 
 To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:

@@ -5,6 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:github": "ng build --configuration production --base-href /E-commerce-App/",
+    "copy:404": "node -e \"require('fs').copyFileSync('dist/ecommerce-app/browser/index.html', 'dist/ecommerce-app/browser/404.html')\"",
+    "deploy": "npm run build:github && npm run copy:404 && ngh --dir=dist/ecommerce-app/browser",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
